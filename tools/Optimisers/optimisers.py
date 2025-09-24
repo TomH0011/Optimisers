@@ -1,5 +1,13 @@
-import sys
+# Contains the logic for each optimser which should be contained in their own class,
 
+import sys
+from Config.RegisterDecorator import register_optimiser
+
+
+@register_optimiser
+class SGD(Optimiser):
+    def __init__(self):
+        pass
 
 
 class Optimisers:
@@ -79,7 +87,8 @@ class Optimisers:
 
         return rebuild(parameters, new_params)
 
-    def NAG(self, parameters, gradients, momentum, acceleration, learning_rate, steps=None, epsilon=None, weight_decay=None):
+    def NAG(self, parameters, gradients, momentum, acceleration, learning_rate, steps=None, epsilon=None,
+            weight_decay=None):
 
         # Helper function
         def rebuild(old_data, new_data):
@@ -104,8 +113,12 @@ class Optimisers:
 
         return rebuild(parameters, new_params)
 
+    def AdaGrad(self, parameters, gradients, learning_rate, weight_decay, learning_rate_decay, epsilon,
+                differentiable, ):
+        # params - (learning_rate / sqrt(G_t, ii) + some small eps) * gradients
+        if epsilon is None:
+            epsilon = 1e-8
 
-    def AdaGrad(self):
         return
 
     def AdaDelta(self):
