@@ -9,7 +9,8 @@ class Utils:
         pass
 
     def weight_decay(self, decay, gradient, parameters) -> (list, tuple, self.TorchTensor):
-        decayed_gradient = gradient + decay * parameters
+        for p in parameters:
+            decayed_gradient = gradient + decay * p.data
         if isinstance(decayed_gradient, (list, tuple, self.TorchTensor)):
             return decayed_gradient
         else:

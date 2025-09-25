@@ -8,13 +8,13 @@ class SGD(OptimiserParentClass):
     def __init__(self, params, lr, weight_decay):
         super().__init__(params, lr)
         self.weight_decay = weight_decay
-        self.Utils = Utils
+        self.utils = Utils()
 
     def update_param(self, p):
         grad = p.grad
 
         if self.weight_decay > 0:
-            self.Utils.weight_decay(self.weight_decay, grad, p)  # Handles the weight decay
+            grad = self.utils.weight_decay(self.weight_decay, grad, p)  # Handles the weight decay
 
         p.data = p.data - self.lr * grad
 

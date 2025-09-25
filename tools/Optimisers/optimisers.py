@@ -99,7 +99,6 @@ class Optimisers:
 
         new_params = []
         velocity = 0
-        lookahead_velocity = 0
         for p, g in zip(parameters, gradients):
             if weight_decay:
                 g = g + weight_decay * p
