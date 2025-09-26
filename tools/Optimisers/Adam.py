@@ -1,7 +1,4 @@
-import math
-
 import numpy as np
-
 from Config.RegisterDecorator import register_optimiser
 from tools.opt_parent import OptimiserParentClass
 from tools.Utilities import Utils

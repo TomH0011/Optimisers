@@ -3,17 +3,32 @@
 # Gradient Clipping
 # Learning rate scheduler
 
+import numpy as np
+
+try:
+    import torch
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
+
+
 class Utils:
     def __init__(self):
         self.TorchTensor = None
         pass
 
-    def weight_decay(self, decay, gradient, parameters) -> (list, tuple, self.TorchTensor):
-        for p in parameters:
-            decayed_gradient = gradient + decay * p.data
-        if isinstance(decayed_gradient, (list, tuple, self.TorchTensor)):
+    def weight_decay(self, decay, gradient, param):
+        decayed_gradient = gradient + decay * param.data
+
+        # Check type
+        valid_types = (np.ndarray,)
+        if TORCH_AVAILABLE:
+            valid_types = valid_types + (torch.Tensor,)
+
+        if isinstance(decayed_gradient, valid_types):
             return decayed_gradient
         else:
-            print(f'Type error for decayed gradient in class utils weight_decay method, ensure decayed_gradients is '
-                  f'of correct type')
-            raise TypeError
+            raise TypeError(
+                f"decayed_gradient has wrong type: {type(decayed_gradient)}. "
+                f"Expected one of {valid_types}."
+            )

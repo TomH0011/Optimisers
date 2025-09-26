@@ -1,6 +1,7 @@
 import unittest
 import numpy as np
 from tools.opt_parent import build
+from tools.Optimisers import SGD
 
 
 class Parameter:
@@ -31,7 +32,7 @@ class TestSGDOptimiser(unittest.TestCase):
 
     def test_zero_grad_resets_gradients(self):
         params = [Parameter([1.0, 2.0])]
-        opt = build("SGD", params, lr=0.1)
+        opt = build("SGD", params, lr=0.1, weight_decay=0.0)
 
         params[0].grad = np.array([0.3, -0.2])
         opt.zero_grad()
