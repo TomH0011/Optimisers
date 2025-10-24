@@ -19,6 +19,8 @@ NAG: Nesterov Accelerated Gradient.
 
 Adam: Adaptive Moment Estimation.
 
+MUON: Momentum Updating Orthogonalisation Normalisation
+
 This API allows you to easily experiment with different optimisation algorithms for your machine learning models. See the HOW_TO_USE.md for detailed instructions on getting started.
 
 The next goal for this is to try and implement the orthogonalized gradient momentum using Newton-Schulz iteration (or Muon). A beautiful video can be seen explaining this on Jia-Bin Huang's Youtube channel 
