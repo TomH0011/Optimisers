@@ -1,7 +1,7 @@
 # Aim is to create a parent class which has tools for all optimisers
 # e.g. contains methods like step - zero_grad should also go here
 # also contain method for storing parameters
-from Config.RegisterDecorator import OPTIMISER_REGISTRY
+from optimisers.config.RegisterDecorator import OPTIMISER_REGISTRY
 
 
 class OptimiserParentClass:

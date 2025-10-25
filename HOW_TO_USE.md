@@ -38,7 +38,8 @@ It demonstrates how to define parameters, build an optimiser, and run a basic tr
 ```python
 import numpy as np
 # Make sure to adjust the import path based on your project structure
-from tools.opt_parent import build
+from optimisers.tools.opt_parent import build
+
 
 # --- 1. Defining Parameters ---
 # Your model's parameters need a `.data` attribute (its value) and
@@ -48,11 +49,13 @@ from tools.opt_parent import build
 
 class Parameter:
     """A simple class to hold parameter data and its gradient."""
+
     def __init__(self, data):
         if not isinstance(data, np.ndarray):
             data = np.array(data, dtype=float)
         self.data = data
         self.grad = np.zeros_like(self.data)
+
 
 # Example: Create some parameters for a hypothetical model
 param1 = Parameter([5.0, -2.0])
@@ -104,7 +107,7 @@ for epoch in range(5):
     optimizer.step()
 
     # d. Print updated parameters to see the change
-    print(f"--- Epoch {epoch+1} ---")
+    print(f"--- Epoch {epoch + 1} ---")
     print(f"  Param 1 Grad: {model_params[0].grad}")
     print(f"  Updated Param 1: {model_params[0].data}")
     print(f"  Param 2 Grad: {model_params[1].grad}")
