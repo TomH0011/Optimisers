@@ -38,7 +38,7 @@ It demonstrates how to define parameters, build an optimiser, and run a basic tr
 ```python
 import numpy as np
 # Make sure to adjust the import path based on your project structure
-from optimisers.tools.opt_parent import build
+from optimisers.tools.optimiserParent import build
 
 
 # --- 1. Defining Parameters ---

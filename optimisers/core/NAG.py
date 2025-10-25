@@ -1,7 +1,7 @@
 import numpy as np
 from optimisers.config.RegisterDecorator import register_optimiser
-from optimisers.tools.opt_parent import OptimiserParentClass
-from optimisers.tools.Utilities import Utils
+from optimisers.tools.optimiserParent import OptimiserParentClass
+from optimisers.tools.utilities import Utils
 
 
 @register_optimiser('NAG')
