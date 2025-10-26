@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "A modular, extensible optimiser API for deep learning research"
 readme = "README.md"
 requires-python = ">=3.8"
-dependencies = ["numpy"]
+dependencies = ["numpy", "torch"]
 
 [tool.setuptools.packages.find]
 where = ["optimisers"]
